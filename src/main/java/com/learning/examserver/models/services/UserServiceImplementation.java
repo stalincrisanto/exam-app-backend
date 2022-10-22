@@ -28,10 +28,8 @@ public class UserServiceImplementation implements IUserService {
 		} else {
 			//aquí se crea el usuario
 			for (UserRole userRole : userRoles) {
-				System.out.println("AQUI ESTOY RECORRIENDO EL ARREGLO DE UserRole con "+userRole.getRole().getRoleName());
 				roleDao.save(userRole.getRole());
 			}
-			System.out.println("AQUI SALI DEL FOR Y TENGO ESO DEL user.getUserRoles() "+user.getUserRoles());
 			user.getUserRoles().addAll(userRoles);
 			local = this.userDao.save(user);
 		}
